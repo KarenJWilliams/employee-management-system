@@ -34,7 +34,7 @@ pipeline {
     }
 
     environment {
-        DOCKER_USERNAME = credentials('dockerhub-username') // Add in Jenkins credentials
-        DOCKER_PASSWORD = credentials('dockerhub-password')
+        DOCKER_USERNAME = credentials('dockerhub-credentials') // Add in Jenkins credentials
+        DOCKER_PASSWORD = credentials('dockerhub-credentials')
     }
 }
