@@ -21,14 +21,14 @@ pipeline {
             }
         }
 
-        stage('Deploy via Terraform') {
+        stage('Local Docker Deploy') {
             steps {
-                echo 'Running Terraform Apply...'
+                echo 'Deploying container locally...'
                 sh '''
-                    cd terraform
-                    terraform init
-                    terraform apply -auto-approve
-                '''
+                    docker stop employee-management || true
+                    docker rm employee-management || true
+                    docker run -d -p 8080:8080 --name employee-management karenjwilliams/employee-management:latest
+               '''
             }
         }
     }
