@@ -1,0 +1,21 @@
+- hosts: app_servers
+  become: yes
+  tasks:
+    - name: Install Docker
+      apt:
+        name: docker.io
+        state: present
+        update_cache: yes
+
+    - name: Start Docker service
+      service:
+        name: docker
+        state: started
+        enabled: true
+
+    - name: Run Employee Management App container
+      docker_container:
+        name: employee-management
+        image: karenjwilliams/employee-management:latest
+        ports:
+          - "8082:8080"
