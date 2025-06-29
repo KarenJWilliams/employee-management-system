@@ -27,7 +27,7 @@ pipeline {
                 sh '''
                     docker stop employee-management || true
                     docker rm employee-management || true
-                    docker run -d -p 8080:8080 --name employee-management karenjwilliams/employee-management:latest
+                    docker run -d -p 8086:8080 --name employee-management karenjwilliams/employee-management:latest
                '''
             }
         }
