@@ -25,7 +25,7 @@ pipeline {
             steps {
                 echo 'Running Terraform Apply...'
                 sh '''
-                    cd ../employee-docker-terraform
+                    cd terraform
                     terraform init
                     terraform apply -auto-approve
                 '''
